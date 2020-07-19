@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<html>
+    <head>
+        <title>Button</title>
+        <style>
+            img {
+                position: absolute;
+                left: calc(50% - 200px);
+                top: calc(50% - 200px);
+            }
+
+            body {
+                -webkit-touch-callout:none;  /*系统默认菜单被禁用*/
+                -webkit-user-select:none; /*webkit浏览器*/
+                -khtml-user-select:none; /*早期浏览器*/
+                -moz-user-select:none;/*火狐*/
+                -ms-user-select:none; /*IE10*/
+                user-select:none;
+            }
+
+        </style>
+        <script>
+            function buttonObjOn() {
+                var buttonObj = document.getElementById("button");
+                var musicObj = document.getElementById("music");
+                buttonObj.src = "on.png";
+                musicObj.currentTime = 0;
+                musicObj.play();
+            }
+            function buttonObjOff() {
+                var buttonObj = document.getElementById("button");
+                buttonObj.src = "off.png";
+            }
+            document.documentElement.addEventListener('dblclick', function(e) {
+                e.preventDefault();
+            });
+        </script>
+    </head>
+    <body>
+        <img src="off.png" id="button" 
+        onmousedown="buttonObjOn()" ontouchstart="buttonObjOn()"
+        onmouseup="buttonObjOff()" onmouseout="buttonObjOff()" ontouchend="buttonObjOff()">
+
+        <audio id="music" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/blocSonic/Josh_Woodward/Breadcrumbs/Josh_Woodward_-_02_-_Swansong_Instrumental_Version.mp3"></audio>
+
+    </body>
+</html>
